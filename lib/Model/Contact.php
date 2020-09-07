@@ -207,6 +207,8 @@ class Contact implements ModelInterface, ArrayAccess
     const PHONE_TYPE_WORK = 'Work';
     const PHONE_TYPE_OTHER = 'Other';
     const PHONE_TYPE_EMPTY = '';
+
+    const RELATIONSHIP_GUARDIAN = 'Guardian';
     const RELATIONSHIP_PARENT = 'Parent';
     const RELATIONSHIP_GRANDPARENT = 'Grandparent';
     const RELATIONSHIP_SELF = 'Self';
@@ -214,6 +216,7 @@ class Contact implements ModelInterface, ArrayAccess
     const RELATIONSHIP_SIBLING = 'Sibling';
     const RELATIONSHIP_OTHER = 'Other';
     const RELATIONSHIP_EMPTY = '';
+
     const TYPE_PARENTGUARDIAN = 'Parent/Guardian';
     const TYPE_EMERGENCY = 'Emergency';
     const TYPE_PRIMARY = 'Primary';
@@ -248,6 +251,7 @@ class Contact implements ModelInterface, ArrayAccess
     public function getRelationshipAllowableValues()
     {
         return [
+            self::RELATIONSHIP_GUARDIAN,
             self::RELATIONSHIP_PARENT,
             self::RELATIONSHIP_GRANDPARENT,
             self::RELATIONSHIP_SELF,
