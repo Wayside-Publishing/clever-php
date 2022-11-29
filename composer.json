@@ -1,4 +1,5 @@
 {
+    "name": "wayside-publishing/clever-php",
     "description": "Serves the Clever Data API",
     "keywords": [
         "openapitools",
