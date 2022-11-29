@@ -1,46 +1,55 @@
 # Clever\EventsApi
 
-All URIs are relative to *https://api.clever.com/v2.0*
+All URIs are relative to https://api.clever.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getEvent**](EventsApi.md#getEvent) | **GET** /events/{id} | 
-[**getEvents**](EventsApi.md#getEvents) | **GET** /events | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getEvent()**](EventsApi.md#getEvent) | **GET** /events/{id} |  |
+| [**getEvents()**](EventsApi.md#getEvents) | **GET** /events |  |
 
 
-# **getEvent**
-> \Clever\Model\EventResponse getEvent($id)
+## `getEvent()`
+
+```php
+getEvent($id): \Clever\Model\EventResponse
+```
 
 
 
 Returns the specific event
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
 
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$id = "id_example"; // string | 
+
+$apiInstance = new Clever\Api\EventsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string
 
 try {
-    $result = $api_instance->getEvent($id);
+    $result = $apiInstance->getEvent($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EventsApi->getEvent: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
 
 ### Return type
 
@@ -48,56 +57,67 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth](../README.md#oauth)
+[oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getEvents**
-> \Clever\Model\EventsResponse getEvents($limit, $starting_after, $ending_before, $school, $record_type)
+## `getEvents()`
+
+```php
+getEvents($limit, $starting_after, $ending_before, $school, $record_type): \Clever\Model\EventsResponse
+```
 
 
 
 Returns a list of events
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
 
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$limit = 56; // int | 
-$starting_after = "starting_after_example"; // string | 
-$ending_before = "ending_before_example"; // string | 
-$school = "school_example"; // string | 
-$record_type = array("record_type_example"); // string[] | 
+
+$apiInstance = new Clever\Api\EventsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$limit = 56; // int
+$starting_after = 'starting_after_example'; // string
+$ending_before = 'ending_before_example'; // string
+$school = 'school_example'; // string
+$record_type = array('record_type_example'); // string[]
 
 try {
-    $result = $api_instance->getEvents($limit, $starting_after, $ending_before, $school, $record_type);
+    $result = $apiInstance->getEvents($limit, $starting_after, $ending_before, $school, $record_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EventsApi->getEvents: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int**|  | [optional]
- **starting_after** | **string**|  | [optional]
- **ending_before** | **string**|  | [optional]
- **school** | **string**|  | [optional]
- **record_type** | [**string[]**](../Model/string.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **int**|  | [optional] |
+| **starting_after** | **string**|  | [optional] |
+| **ending_before** | **string**|  | [optional] |
+| **school** | **string**|  | [optional] |
+| **record_type** | [**string[]**](../Model/string.md)|  | [optional] |
 
 ### Return type
 
@@ -105,12 +125,13 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth](../README.md#oauth)
+[oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

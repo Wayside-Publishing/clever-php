@@ -1,19 +1,13 @@
-# Contact
+# # Contact
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**district** | **string** |  | [optional] 
-**email** | **string** |  | [optional] 
-**id** | **string** |  | [optional] 
-**name** | **string** |  | [optional] 
-**phone** | **string** |  | [optional] 
-**phone_type** | **string** |  | [optional] 
-**relationship** | **string** |  | [optional] 
-**sis_id** | **string** |  | [optional] 
-**students** | **string[]** |  | [optional] 
-**type** | **string** |  | [optional] 
+**legacy_id** | **string** |  | [optional]
+**phone** | **string** |  | [optional]
+**phone_type** | **string** |  | [optional]
+**sis_id** | **string** |  | [optional]
+**student_relationships** | [**\Clever\Model\StudentRelationship[]**](StudentRelationship.md) |  | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

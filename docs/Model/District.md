@@ -1,20 +1,22 @@
-# District
+# # District
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | **string** |  | [optional] 
-**id** | **string** |  | [optional] 
-**last_sync** | **string** |  | [optional] 
-**launch_date** | **string** |  | [optional] 
-**mdr_number** | **string** |  | [optional] 
-**name** | **string** |  | [optional] 
-**nces_id** | **string** |  | [optional] 
-**pause_end** | **string** |  | [optional] 
-**pause_start** | **string** |  | [optional] 
-**sis_type** | **string** |  | [optional] 
-**state** | **string** |  | [optional] 
+**id** | **string** |  | [optional]
+**name** | **string** |  | [optional]
+**mdr_number** | **string** |  | [optional]
+**nces_id** | **string** |  | [optional]
+**sis_type** | **string** |  | [optional]
+**state** | **string** |  | [optional]
+**last_sync** | **string** |  | [optional]
+**error** | **string** |  | [optional]
+**pause_start** | **string** |  | [optional]
+**pause_end** | **string** |  | [optional]
+**launch_date** | **\DateTime** |  | [optional]
+**portal_url** | **string** |  | [optional]
+**login_methods** | **string[]** |  | [optional]
+**district_contact** | [**\Clever\Model\DistrictContact**](DistrictContact.md) |  | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

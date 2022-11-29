@@ -1,15 +1,14 @@
-# Location
+# # Location
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address** | **string** |  | [optional] 
-**city** | **string** |  | [optional] 
-**lat** | **string** |  | [optional] 
-**lon** | **string** |  | [optional] 
-**state** | **string** |  | [optional] 
-**zip** | **string** |  | [optional] 
+**address** | **string** |  | [optional]
+**city** | **string** |  | [optional]
+**state** | **string** |  | [optional]
+**zip** | **string** |  | [optional]
+**lat** | **string** |  | [optional]
+**lon** | **string** |  | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
