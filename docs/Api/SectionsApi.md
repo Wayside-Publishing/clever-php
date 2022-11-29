@@ -6,12 +6,13 @@ All URIs are relative to https://api.clever.com, except if the operation defines
 | ------------- | ------------- | ------------- |
 | [**getCourseForSection()**](SectionsApi.md#getCourseForSection) | **GET** /sections/{id}/course |  |
 | [**getDistrictForSection()**](SectionsApi.md#getDistrictForSection) | **GET** /sections/{id}/district |  |
-| [**getResourcesForSection()**](SectionsApi.md#getResourcesForSection) | **GET** /sections/{id}/resources |  |
 | [**getSchoolForSection()**](SectionsApi.md#getSchoolForSection) | **GET** /sections/{id}/school |  |
 | [**getSection()**](SectionsApi.md#getSection) | **GET** /sections/{id} |  |
 | [**getSections()**](SectionsApi.md#getSections) | **GET** /sections |  |
+| [**getStudentsForSection()**](SectionsApi.md#getStudentsForSection) | **GET** /sections/{id}/students |  |
+| [**getTeacherForSection()**](SectionsApi.md#getTeacherForSection) | **GET** /sections/{id}/teacher |  |
+| [**getTeachersForSection()**](SectionsApi.md#getTeachersForSection) | **GET** /sections/{id}/teachers |  |
 | [**getTermForSection()**](SectionsApi.md#getTermForSection) | **GET** /sections/{id}/term |  |
-| [**getUsersForSection()**](SectionsApi.md#getUsersForSection) | **GET** /sections/{id}/users |  |
 
 
 ## `getCourseForSection()`
@@ -120,72 +121,6 @@ try {
 ### Return type
 
 [**\Clever\Model\DistrictResponse**](../Model/DistrictResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getResourcesForSection()`
-
-```php
-getResourcesForSection($id, $limit, $starting_after, $ending_before): \Clever\Model\ResourcesResponse
-```
-
-
-
-Returns the resources for a section
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Clever\Api\SectionsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string
-$limit = 56; // int
-$starting_after = 'starting_after_example'; // string
-$ending_before = 'ending_before_example'; // string
-
-try {
-    $result = $apiInstance->getResourcesForSection($id, $limit, $starting_after, $ending_before);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SectionsApi->getResourcesForSection: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
-| **limit** | **int**|  | [optional] |
-| **starting_after** | **string**|  | [optional] |
-| **ending_before** | **string**|  | [optional] |
-
-### Return type
-
-[**\Clever\Model\ResourcesResponse**](../Model/ResourcesResponse.md)
 
 ### Authorization
 
@@ -386,6 +321,198 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getStudentsForSection()`
+
+```php
+getStudentsForSection($id, $limit, $starting_after, $ending_before): \Clever\Model\StudentsResponse
+```
+
+
+
+Returns the students for a section
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Clever\Api\SectionsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string
+$limit = 56; // int
+$starting_after = 'starting_after_example'; // string
+$ending_before = 'ending_before_example'; // string
+
+try {
+    $result = $apiInstance->getStudentsForSection($id, $limit, $starting_after, $ending_before);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SectionsApi->getStudentsForSection: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **limit** | **int**|  | [optional] |
+| **starting_after** | **string**|  | [optional] |
+| **ending_before** | **string**|  | [optional] |
+
+### Return type
+
+[**\Clever\Model\StudentsResponse**](../Model/StudentsResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTeacherForSection()`
+
+```php
+getTeacherForSection($id): \Clever\Model\TeacherResponse
+```
+
+
+
+Returns the primary teacher for a section
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Clever\Api\SectionsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string
+
+try {
+    $result = $apiInstance->getTeacherForSection($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SectionsApi->getTeacherForSection: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+
+### Return type
+
+[**\Clever\Model\TeacherResponse**](../Model/TeacherResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTeachersForSection()`
+
+```php
+getTeachersForSection($id, $limit, $starting_after, $ending_before): \Clever\Model\TeachersResponse
+```
+
+
+
+Returns the teachers for a section
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Clever\Api\SectionsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string
+$limit = 56; // int
+$starting_after = 'starting_after_example'; // string
+$ending_before = 'ending_before_example'; // string
+
+try {
+    $result = $apiInstance->getTeachersForSection($id, $limit, $starting_after, $ending_before);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SectionsApi->getTeachersForSection: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **limit** | **int**|  | [optional] |
+| **starting_after** | **string**|  | [optional] |
+| **ending_before** | **string**|  | [optional] |
+
+### Return type
+
+[**\Clever\Model\TeachersResponse**](../Model/TeachersResponse.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getTermForSection()`
 
 ```php
@@ -432,74 +559,6 @@ try {
 ### Return type
 
 [**\Clever\Model\TermResponse**](../Model/TermResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getUsersForSection()`
-
-```php
-getUsersForSection($id, $role, $limit, $starting_after, $ending_before): \Clever\Model\UsersResponse
-```
-
-
-
-Returns the student and/or teacher users for a section
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Clever\Api\SectionsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string
-$role = 'role_example'; // string
-$limit = 56; // int
-$starting_after = 'starting_after_example'; // string
-$ending_before = 'ending_before_example'; // string
-
-try {
-    $result = $apiInstance->getUsersForSection($id, $role, $limit, $starting_after, $ending_before);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SectionsApi->getUsersForSection: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
-| **role** | **string**|  | [optional] |
-| **limit** | **int**|  | [optional] |
-| **starting_after** | **string**|  | [optional] |
-| **ending_before** | **string**|  | [optional] |
-
-### Return type
-
-[**\Clever\Model\UsersResponse**](../Model/UsersResponse.md)
 
 ### Authorization
 

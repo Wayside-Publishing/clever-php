@@ -14,9 +14,9 @@ Name | Type | Description | Notes
 **error** | **string** |  | [optional]
 **pause_start** | **string** |  | [optional]
 **pause_end** | **string** |  | [optional]
-**launch_date** | **\DateTime** |  | [optional]
+**launch_date** | **string** |  | [optional]
 **portal_url** | **string** |  | [optional]
 **login_methods** | **string[]** |  | [optional]
-**district_contact** | [**\Clever\Model\DistrictContact**](DistrictContact.md) |  | [optional]
+**district_contact** | [**\Clever\Model\DistrictAdmin**](DistrictAdmin.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -4,80 +4,13 @@ All URIs are relative to https://api.clever.com, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getCoursesForSchool()**](SchoolsApi.md#getCoursesForSchool) | **GET** /schools/{id}/courses |  |
 | [**getDistrictForSchool()**](SchoolsApi.md#getDistrictForSchool) | **GET** /schools/{id}/district |  |
 | [**getSchool()**](SchoolsApi.md#getSchool) | **GET** /schools/{id} |  |
 | [**getSchools()**](SchoolsApi.md#getSchools) | **GET** /schools |  |
 | [**getSectionsForSchool()**](SchoolsApi.md#getSectionsForSchool) | **GET** /schools/{id}/sections |  |
-| [**getTermsForSchool()**](SchoolsApi.md#getTermsForSchool) | **GET** /schools/{id}/terms |  |
-| [**getUsersForSchool()**](SchoolsApi.md#getUsersForSchool) | **GET** /schools/{id}/users |  |
+| [**getStudentsForSchool()**](SchoolsApi.md#getStudentsForSchool) | **GET** /schools/{id}/students |  |
+| [**getTeachersForSchool()**](SchoolsApi.md#getTeachersForSchool) | **GET** /schools/{id}/teachers |  |
 
-
-## `getCoursesForSchool()`
-
-```php
-getCoursesForSchool($id, $limit, $starting_after, $ending_before): \Clever\Model\CoursesResponse
-```
-
-
-
-Returns the courses for a school
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Clever\Api\SchoolsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string
-$limit = 56; // int
-$starting_after = 'starting_after_example'; // string
-$ending_before = 'ending_before_example'; // string
-
-try {
-    $result = $apiInstance->getCoursesForSchool($id, $limit, $starting_after, $ending_before);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SchoolsApi->getCoursesForSchool: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
-| **limit** | **int**|  | [optional] |
-| **starting_after** | **string**|  | [optional] |
-| **ending_before** | **string**|  | [optional] |
-
-### Return type
-
-[**\Clever\Model\CoursesResponse**](../Model/CoursesResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
 
 ## `getDistrictForSchool()`
 
@@ -331,15 +264,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getTermsForSchool()`
+## `getStudentsForSchool()`
 
 ```php
-getTermsForSchool($id, $limit, $starting_after, $ending_before): \Clever\Model\TermsResponse
+getStudentsForSchool($id, $limit, $starting_after, $ending_before): \Clever\Model\StudentsResponse
 ```
 
 
 
-Returns the terms for a school
+Returns the students for a school
 
 ### Example
 
@@ -364,10 +297,10 @@ $starting_after = 'starting_after_example'; // string
 $ending_before = 'ending_before_example'; // string
 
 try {
-    $result = $apiInstance->getTermsForSchool($id, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getStudentsForSchool($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SchoolsApi->getTermsForSchool: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SchoolsApi->getStudentsForSchool: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -382,7 +315,7 @@ try {
 
 ### Return type
 
-[**\Clever\Model\TermsResponse**](../Model/TermsResponse.md)
+[**\Clever\Model\StudentsResponse**](../Model/StudentsResponse.md)
 
 ### Authorization
 
@@ -397,15 +330,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getUsersForSchool()`
+## `getTeachersForSchool()`
 
 ```php
-getUsersForSchool($id, $role, $primary, $limit, $starting_after, $ending_before): \Clever\Model\UsersResponse
+getTeachersForSchool($id, $limit, $starting_after, $ending_before): \Clever\Model\TeachersResponse
 ```
 
 
 
-Returns the staff, student, and/or teacher users for a school
+Returns the teachers for a school
 
 ### Example
 
@@ -425,17 +358,15 @@ $apiInstance = new Clever\Api\SchoolsApi(
     $config
 );
 $id = 'id_example'; // string
-$role = 'role_example'; // string
-$primary = 'primary_example'; // string
 $limit = 56; // int
 $starting_after = 'starting_after_example'; // string
 $ending_before = 'ending_before_example'; // string
 
 try {
-    $result = $apiInstance->getUsersForSchool($id, $role, $primary, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getTeachersForSchool($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SchoolsApi->getUsersForSchool: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SchoolsApi->getTeachersForSchool: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -444,15 +375,13 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **role** | **string**|  | [optional] |
-| **primary** | **string**|  | [optional] |
 | **limit** | **int**|  | [optional] |
 | **starting_after** | **string**|  | [optional] |
 | **ending_before** | **string**|  | [optional] |
 
 ### Return type
 
-[**\Clever\Model\UsersResponse**](../Model/UsersResponse.md)
+[**\Clever\Model\TeachersResponse**](../Model/TeachersResponse.md)
 
 ### Authorization
 

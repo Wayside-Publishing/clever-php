@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**legacy_id** | **string** |  | [optional]
+**id** | **string** |  | [optional]
 **created** | **string** |  | [optional]
 **credentials** | [**\Clever\Model\Credentials**](Credentials.md) |  | [optional]
 **district** | **string** |  | [optional]
+**email** | **string** |  | [optional]
 **last_modified** | **string** |  | [optional]
 **name** | [**\Clever\Model\Name**](Name.md) |  | [optional]
 **school** | **string** |  | [optional]

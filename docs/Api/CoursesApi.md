@@ -7,8 +7,6 @@ All URIs are relative to https://api.clever.com, except if the operation defines
 | [**getCourse()**](CoursesApi.md#getCourse) | **GET** /courses/{id} |  |
 | [**getCourses()**](CoursesApi.md#getCourses) | **GET** /courses |  |
 | [**getDistrictForCourse()**](CoursesApi.md#getDistrictForCourse) | **GET** /courses/{id}/district |  |
-| [**getResourcesForCourse()**](CoursesApi.md#getResourcesForCourse) | **GET** /courses/{id}/resources |  |
-| [**getSchoolsForCourse()**](CoursesApi.md#getSchoolsForCourse) | **GET** /courses/{id}/schools |  |
 | [**getSectionsForCourse()**](CoursesApi.md#getSectionsForCourse) | **GET** /courses/{id}/sections |  |
 
 
@@ -198,138 +196,6 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getResourcesForCourse()`
-
-```php
-getResourcesForCourse($id, $limit, $starting_after, $ending_before): \Clever\Model\ResourcesResponse
-```
-
-
-
-Returns the resources for a course
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Clever\Api\CoursesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string
-$limit = 56; // int
-$starting_after = 'starting_after_example'; // string
-$ending_before = 'ending_before_example'; // string
-
-try {
-    $result = $apiInstance->getResourcesForCourse($id, $limit, $starting_after, $ending_before);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CoursesApi->getResourcesForCourse: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
-| **limit** | **int**|  | [optional] |
-| **starting_after** | **string**|  | [optional] |
-| **ending_before** | **string**|  | [optional] |
-
-### Return type
-
-[**\Clever\Model\ResourcesResponse**](../Model/ResourcesResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getSchoolsForCourse()`
-
-```php
-getSchoolsForCourse($id, $limit, $starting_after, $ending_before): \Clever\Model\SchoolsResponse
-```
-
-
-
-Returns the schools for a course
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Clever\Api\CoursesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string
-$limit = 56; // int
-$starting_after = 'starting_after_example'; // string
-$ending_before = 'ending_before_example'; // string
-
-try {
-    $result = $apiInstance->getSchoolsForCourse($id, $limit, $starting_after, $ending_before);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CoursesApi->getSchoolsForCourse: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
-| **limit** | **int**|  | [optional] |
-| **starting_after** | **string**|  | [optional] |
-| **ending_before** | **string**|  | [optional] |
-
-### Return type
-
-[**\Clever\Model\SchoolsResponse**](../Model/SchoolsResponse.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `getSectionsForCourse()`
 
 ```php
@@ -338,7 +204,7 @@ getSectionsForCourse($id, $limit, $starting_after, $ending_before): \Clever\Mode
 
 
 
-Returns the sections for a course
+Returns the sections for a Courses
 
 ### Example
 

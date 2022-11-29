@@ -53,7 +53,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Clever\Api\CoursesApi(
+$apiInstance = new Clever\Api\ContactsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -62,10 +62,10 @@ $apiInstance = new Clever\Api\CoursesApi(
 $id = 'id_example'; // string
 
 try {
-    $result = $apiInstance->getCourse($id);
+    $result = $apiInstance->getContact($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CoursesApi->getCourse: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ContactsApi->getContact: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -76,55 +76,73 @@ All URIs are relative to *https://api.clever.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ContactsApi* | [**getContact**](docs/Api/ContactsApi.md#getcontact) | **GET** /contacts/{id} | 
+*ContactsApi* | [**getContacts**](docs/Api/ContactsApi.md#getcontacts) | **GET** /contacts | 
+*ContactsApi* | [**getDistrictForContact**](docs/Api/ContactsApi.md#getdistrictforcontact) | **GET** /contacts/{id}/district | 
+*ContactsApi* | [**getStudentsForContact**](docs/Api/ContactsApi.md#getstudentsforcontact) | **GET** /contacts/{id}/students | 
 *CoursesApi* | [**getCourse**](docs/Api/CoursesApi.md#getcourse) | **GET** /courses/{id} | 
 *CoursesApi* | [**getCourses**](docs/Api/CoursesApi.md#getcourses) | **GET** /courses | 
 *CoursesApi* | [**getDistrictForCourse**](docs/Api/CoursesApi.md#getdistrictforcourse) | **GET** /courses/{id}/district | 
-*CoursesApi* | [**getResourcesForCourse**](docs/Api/CoursesApi.md#getresourcesforcourse) | **GET** /courses/{id}/resources | 
-*CoursesApi* | [**getSchoolsForCourse**](docs/Api/CoursesApi.md#getschoolsforcourse) | **GET** /courses/{id}/schools | 
 *CoursesApi* | [**getSectionsForCourse**](docs/Api/CoursesApi.md#getsectionsforcourse) | **GET** /courses/{id}/sections | 
+*DistrictAdminsApi* | [**getDistrictAdmin**](docs/Api/DistrictAdminsApi.md#getdistrictadmin) | **GET** /district_admins/{id} | 
+*DistrictAdminsApi* | [**getDistrictAdmins**](docs/Api/DistrictAdminsApi.md#getdistrictadmins) | **GET** /district_admins | 
+*DistrictAdminsApi* | [**getDistrictForDistrictAdmin**](docs/Api/DistrictAdminsApi.md#getdistrictfordistrictadmin) | **GET** /district_admins/{id}/district | 
 *DistrictsApi* | [**getDistrict**](docs/Api/DistrictsApi.md#getdistrict) | **GET** /districts/{id} | 
 *DistrictsApi* | [**getDistricts**](docs/Api/DistrictsApi.md#getdistricts) | **GET** /districts | 
 *EventsApi* | [**getEvent**](docs/Api/EventsApi.md#getevent) | **GET** /events/{id} | 
 *EventsApi* | [**getEvents**](docs/Api/EventsApi.md#getevents) | **GET** /events | 
-*ResourcesApi* | [**getCoursesForResource**](docs/Api/ResourcesApi.md#getcoursesforresource) | **GET** /resources/{id}/courses | 
-*ResourcesApi* | [**getResource**](docs/Api/ResourcesApi.md#getresource) | **GET** /resources/{id} | 
-*ResourcesApi* | [**getResources**](docs/Api/ResourcesApi.md#getresources) | **GET** /resources | 
-*ResourcesApi* | [**getSectionsForResource**](docs/Api/ResourcesApi.md#getsectionsforresource) | **GET** /resources/{id}/sections | 
-*ResourcesApi* | [**getUsersForResource**](docs/Api/ResourcesApi.md#getusersforresource) | **GET** /resources/{id}/users | 
-*SchoolsApi* | [**getCoursesForSchool**](docs/Api/SchoolsApi.md#getcoursesforschool) | **GET** /schools/{id}/courses | 
+*SchoolAdminsApi* | [**getDistrictForSchoolAdmin**](docs/Api/SchoolAdminsApi.md#getdistrictforschooladmin) | **GET** /school_admins/{id}/district | 
+*SchoolAdminsApi* | [**getSchoolAdmin**](docs/Api/SchoolAdminsApi.md#getschooladmin) | **GET** /school_admins/{id} | 
+*SchoolAdminsApi* | [**getSchoolAdmins**](docs/Api/SchoolAdminsApi.md#getschooladmins) | **GET** /school_admins | 
+*SchoolAdminsApi* | [**getSchoolsForSchoolAdmin**](docs/Api/SchoolAdminsApi.md#getschoolsforschooladmin) | **GET** /school_admins/{id}/schools | 
 *SchoolsApi* | [**getDistrictForSchool**](docs/Api/SchoolsApi.md#getdistrictforschool) | **GET** /schools/{id}/district | 
 *SchoolsApi* | [**getSchool**](docs/Api/SchoolsApi.md#getschool) | **GET** /schools/{id} | 
 *SchoolsApi* | [**getSchools**](docs/Api/SchoolsApi.md#getschools) | **GET** /schools | 
 *SchoolsApi* | [**getSectionsForSchool**](docs/Api/SchoolsApi.md#getsectionsforschool) | **GET** /schools/{id}/sections | 
-*SchoolsApi* | [**getTermsForSchool**](docs/Api/SchoolsApi.md#gettermsforschool) | **GET** /schools/{id}/terms | 
-*SchoolsApi* | [**getUsersForSchool**](docs/Api/SchoolsApi.md#getusersforschool) | **GET** /schools/{id}/users | 
+*SchoolsApi* | [**getStudentsForSchool**](docs/Api/SchoolsApi.md#getstudentsforschool) | **GET** /schools/{id}/students | 
+*SchoolsApi* | [**getTeachersForSchool**](docs/Api/SchoolsApi.md#getteachersforschool) | **GET** /schools/{id}/teachers | 
 *SectionsApi* | [**getCourseForSection**](docs/Api/SectionsApi.md#getcourseforsection) | **GET** /sections/{id}/course | 
 *SectionsApi* | [**getDistrictForSection**](docs/Api/SectionsApi.md#getdistrictforsection) | **GET** /sections/{id}/district | 
-*SectionsApi* | [**getResourcesForSection**](docs/Api/SectionsApi.md#getresourcesforsection) | **GET** /sections/{id}/resources | 
 *SectionsApi* | [**getSchoolForSection**](docs/Api/SectionsApi.md#getschoolforsection) | **GET** /sections/{id}/school | 
 *SectionsApi* | [**getSection**](docs/Api/SectionsApi.md#getsection) | **GET** /sections/{id} | 
 *SectionsApi* | [**getSections**](docs/Api/SectionsApi.md#getsections) | **GET** /sections | 
+*SectionsApi* | [**getStudentsForSection**](docs/Api/SectionsApi.md#getstudentsforsection) | **GET** /sections/{id}/students | 
+*SectionsApi* | [**getTeacherForSection**](docs/Api/SectionsApi.md#getteacherforsection) | **GET** /sections/{id}/teacher | 
+*SectionsApi* | [**getTeachersForSection**](docs/Api/SectionsApi.md#getteachersforsection) | **GET** /sections/{id}/teachers | 
 *SectionsApi* | [**getTermForSection**](docs/Api/SectionsApi.md#gettermforsection) | **GET** /sections/{id}/term | 
-*SectionsApi* | [**getUsersForSection**](docs/Api/SectionsApi.md#getusersforsection) | **GET** /sections/{id}/users | 
+*StudentsApi* | [**getContactsForStudent**](docs/Api/StudentsApi.md#getcontactsforstudent) | **GET** /students/{id}/contacts | 
+*StudentsApi* | [**getDistrictForStudent**](docs/Api/StudentsApi.md#getdistrictforstudent) | **GET** /students/{id}/district | 
+*StudentsApi* | [**getSchoolForStudent**](docs/Api/StudentsApi.md#getschoolforstudent) | **GET** /students/{id}/school | 
+*StudentsApi* | [**getSchoolsForStudent**](docs/Api/StudentsApi.md#getschoolsforstudent) | **GET** /students/{id}/schools | 
+*StudentsApi* | [**getSectionsForStudent**](docs/Api/StudentsApi.md#getsectionsforstudent) | **GET** /students/{id}/sections | 
+*StudentsApi* | [**getStudent**](docs/Api/StudentsApi.md#getstudent) | **GET** /students/{id} | 
+*StudentsApi* | [**getStudents**](docs/Api/StudentsApi.md#getstudents) | **GET** /students | 
+*StudentsApi* | [**getTeachersForStudent**](docs/Api/StudentsApi.md#getteachersforstudent) | **GET** /students/{id}/teachers | 
+*TeachersApi* | [**getDistrictForTeacher**](docs/Api/TeachersApi.md#getdistrictforteacher) | **GET** /teachers/{id}/district | 
+*TeachersApi* | [**getSchoolForTeacher**](docs/Api/TeachersApi.md#getschoolforteacher) | **GET** /teachers/{id}/school | 
+*TeachersApi* | [**getSchoolsForTeacher**](docs/Api/TeachersApi.md#getschoolsforteacher) | **GET** /teachers/{id}/schools | 
+*TeachersApi* | [**getSectionsForTeacher**](docs/Api/TeachersApi.md#getsectionsforteacher) | **GET** /teachers/{id}/sections | 
+*TeachersApi* | [**getStudentsForTeacher**](docs/Api/TeachersApi.md#getstudentsforteacher) | **GET** /teachers/{id}/students | 
+*TeachersApi* | [**getTeacher**](docs/Api/TeachersApi.md#getteacher) | **GET** /teachers/{id} | 
+*TeachersApi* | [**getTeachers**](docs/Api/TeachersApi.md#getteachers) | **GET** /teachers | 
 *TermsApi* | [**getDistrictForTerm**](docs/Api/TermsApi.md#getdistrictforterm) | **GET** /terms/{id}/district | 
-*TermsApi* | [**getSchoolsForTerm**](docs/Api/TermsApi.md#getschoolsforterm) | **GET** /terms/{id}/schools | 
 *TermsApi* | [**getSectionsForTerm**](docs/Api/TermsApi.md#getsectionsforterm) | **GET** /terms/{id}/sections | 
 *TermsApi* | [**getTerm**](docs/Api/TermsApi.md#getterm) | **GET** /terms/{id} | 
 *TermsApi* | [**getTerms**](docs/Api/TermsApi.md#getterms) | **GET** /terms | 
-*UsersApi* | [**getContactsForUser**](docs/Api/UsersApi.md#getcontactsforuser) | **GET** /users/{id}/mycontacts | 
-*UsersApi* | [**getDistrictForUser**](docs/Api/UsersApi.md#getdistrictforuser) | **GET** /users/{id}/district | 
-*UsersApi* | [**getResourcesForUser**](docs/Api/UsersApi.md#getresourcesforuser) | **GET** /users/{id}/resources | 
-*UsersApi* | [**getSchoolsForUser**](docs/Api/UsersApi.md#getschoolsforuser) | **GET** /users/{id}/schools | 
-*UsersApi* | [**getSectionsForUser**](docs/Api/UsersApi.md#getsectionsforuser) | **GET** /users/{id}/sections | 
-*UsersApi* | [**getStudentsForUser**](docs/Api/UsersApi.md#getstudentsforuser) | **GET** /users/{id}/mystudents | 
-*UsersApi* | [**getTeachersForUser**](docs/Api/UsersApi.md#getteachersforuser) | **GET** /users/{id}/myteachers | 
-*UsersApi* | [**getUser**](docs/Api/UsersApi.md#getuser) | **GET** /users/{id} | 
-*UsersApi* | [**getUsers**](docs/Api/UsersApi.md#getusers) | **GET** /users | 
 
 ## Models
 
+- [AdminName](docs/Model/AdminName.md)
 - [BadRequest](docs/Model/BadRequest.md)
 - [Contact](docs/Model/Contact.md)
+- [ContactObject](docs/Model/ContactObject.md)
+- [ContactResponse](docs/Model/ContactResponse.md)
+- [ContactsCreated](docs/Model/ContactsCreated.md)
+- [ContactsCreatedAllOf](docs/Model/ContactsCreatedAllOf.md)
+- [ContactsDeleted](docs/Model/ContactsDeleted.md)
+- [ContactsResponse](docs/Model/ContactsResponse.md)
+- [ContactsUpdated](docs/Model/ContactsUpdated.md)
+- [ContactsUpdatedAllOf](docs/Model/ContactsUpdatedAllOf.md)
 - [Course](docs/Model/Course.md)
 - [CourseObject](docs/Model/CourseObject.md)
 - [CourseResponse](docs/Model/CourseResponse.md)
@@ -137,9 +155,16 @@ Class | Method | HTTP request | Description
 - [Credentials](docs/Model/Credentials.md)
 - [District](docs/Model/District.md)
 - [DistrictAdmin](docs/Model/DistrictAdmin.md)
-- [DistrictContact](docs/Model/DistrictContact.md)
+- [DistrictAdminObject](docs/Model/DistrictAdminObject.md)
+- [DistrictAdminResponse](docs/Model/DistrictAdminResponse.md)
+- [DistrictAdminsResponse](docs/Model/DistrictAdminsResponse.md)
 - [DistrictObject](docs/Model/DistrictObject.md)
 - [DistrictResponse](docs/Model/DistrictResponse.md)
+- [DistrictadminsCreated](docs/Model/DistrictadminsCreated.md)
+- [DistrictadminsCreatedAllOf](docs/Model/DistrictadminsCreatedAllOf.md)
+- [DistrictadminsDeleted](docs/Model/DistrictadminsDeleted.md)
+- [DistrictadminsUpdated](docs/Model/DistrictadminsUpdated.md)
+- [DistrictadminsUpdatedAllOf](docs/Model/DistrictadminsUpdatedAllOf.md)
 - [DistrictsCreated](docs/Model/DistrictsCreated.md)
 - [DistrictsCreatedAllOf](docs/Model/DistrictsCreatedAllOf.md)
 - [DistrictsDeleted](docs/Model/DistrictsDeleted.md)
@@ -155,20 +180,19 @@ Class | Method | HTTP request | Description
 - [Name](docs/Model/Name.md)
 - [NotFound](docs/Model/NotFound.md)
 - [Principal](docs/Model/Principal.md)
-- [Resource](docs/Model/Resource.md)
-- [ResourceObject](docs/Model/ResourceObject.md)
-- [ResourceResponse](docs/Model/ResourceResponse.md)
-- [ResourcesCreated](docs/Model/ResourcesCreated.md)
-- [ResourcesCreatedAllOf](docs/Model/ResourcesCreatedAllOf.md)
-- [ResourcesDeleted](docs/Model/ResourcesDeleted.md)
-- [ResourcesResponse](docs/Model/ResourcesResponse.md)
-- [ResourcesUpdated](docs/Model/ResourcesUpdated.md)
-- [ResourcesUpdatedAllOf](docs/Model/ResourcesUpdatedAllOf.md)
-- [Roles](docs/Model/Roles.md)
 - [School](docs/Model/School.md)
+- [SchoolAdmin](docs/Model/SchoolAdmin.md)
+- [SchoolAdminObject](docs/Model/SchoolAdminObject.md)
+- [SchoolAdminResponse](docs/Model/SchoolAdminResponse.md)
+- [SchoolAdminsResponse](docs/Model/SchoolAdminsResponse.md)
 - [SchoolEnrollment](docs/Model/SchoolEnrollment.md)
 - [SchoolObject](docs/Model/SchoolObject.md)
 - [SchoolResponse](docs/Model/SchoolResponse.md)
+- [SchooladminsCreated](docs/Model/SchooladminsCreated.md)
+- [SchooladminsCreatedAllOf](docs/Model/SchooladminsCreatedAllOf.md)
+- [SchooladminsDeleted](docs/Model/SchooladminsDeleted.md)
+- [SchooladminsUpdated](docs/Model/SchooladminsUpdated.md)
+- [SchooladminsUpdatedAllOf](docs/Model/SchooladminsUpdatedAllOf.md)
 - [SchoolsCreated](docs/Model/SchoolsCreated.md)
 - [SchoolsCreatedAllOf](docs/Model/SchoolsCreatedAllOf.md)
 - [SchoolsDeleted](docs/Model/SchoolsDeleted.md)
@@ -184,10 +208,24 @@ Class | Method | HTTP request | Description
 - [SectionsResponse](docs/Model/SectionsResponse.md)
 - [SectionsUpdated](docs/Model/SectionsUpdated.md)
 - [SectionsUpdatedAllOf](docs/Model/SectionsUpdatedAllOf.md)
-- [Staff](docs/Model/Staff.md)
 - [Student](docs/Model/Student.md)
-- [StudentRelationship](docs/Model/StudentRelationship.md)
+- [StudentObject](docs/Model/StudentObject.md)
+- [StudentResponse](docs/Model/StudentResponse.md)
+- [StudentsCreated](docs/Model/StudentsCreated.md)
+- [StudentsCreatedAllOf](docs/Model/StudentsCreatedAllOf.md)
+- [StudentsDeleted](docs/Model/StudentsDeleted.md)
+- [StudentsResponse](docs/Model/StudentsResponse.md)
+- [StudentsUpdated](docs/Model/StudentsUpdated.md)
+- [StudentsUpdatedAllOf](docs/Model/StudentsUpdatedAllOf.md)
 - [Teacher](docs/Model/Teacher.md)
+- [TeacherObject](docs/Model/TeacherObject.md)
+- [TeacherResponse](docs/Model/TeacherResponse.md)
+- [TeachersCreated](docs/Model/TeachersCreated.md)
+- [TeachersCreatedAllOf](docs/Model/TeachersCreatedAllOf.md)
+- [TeachersDeleted](docs/Model/TeachersDeleted.md)
+- [TeachersResponse](docs/Model/TeachersResponse.md)
+- [TeachersUpdated](docs/Model/TeachersUpdated.md)
+- [TeachersUpdatedAllOf](docs/Model/TeachersUpdatedAllOf.md)
 - [Term](docs/Model/Term.md)
 - [TermObject](docs/Model/TermObject.md)
 - [TermResponse](docs/Model/TermResponse.md)
@@ -197,15 +235,6 @@ Class | Method | HTTP request | Description
 - [TermsResponse](docs/Model/TermsResponse.md)
 - [TermsUpdated](docs/Model/TermsUpdated.md)
 - [TermsUpdatedAllOf](docs/Model/TermsUpdatedAllOf.md)
-- [User](docs/Model/User.md)
-- [UserObject](docs/Model/UserObject.md)
-- [UserResponse](docs/Model/UserResponse.md)
-- [UsersCreated](docs/Model/UsersCreated.md)
-- [UsersCreatedAllOf](docs/Model/UsersCreatedAllOf.md)
-- [UsersDeleted](docs/Model/UsersDeleted.md)
-- [UsersResponse](docs/Model/UsersResponse.md)
-- [UsersUpdated](docs/Model/UsersUpdated.md)
-- [UsersUpdatedAllOf](docs/Model/UsersUpdatedAllOf.md)
 
 ## Authorization
 
@@ -233,5 +262,5 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `3.1.0`
+- API version: `2.1.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`
