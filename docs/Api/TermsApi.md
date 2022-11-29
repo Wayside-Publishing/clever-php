@@ -1,6 +1,6 @@
 # Clever\TermsApi
 
-All URIs are relative to https://api.clever.com, except if the operation defines another base path.
+All URIs are relative to https://api.clever.com/v2.1, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |

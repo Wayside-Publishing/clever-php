@@ -59,7 +59,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'type' => 'string',
         'id' => 'string',
-        'created' => 'string'
+        'created' => 'string',
+        'data' => 'object'
     ];
 
     /**
@@ -72,7 +73,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'type' => null,
         'id' => null,
-        'created' => 'datetime'
+        'created' => 'datetime',
+        'data' => null
     ];
 
     /**
@@ -83,7 +85,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'type' => false,
 		'id' => false,
-		'created' => false
+		'created' => false,
+		'data' => false
     ];
 
     /**
@@ -174,7 +177,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'type' => 'type',
         'id' => 'id',
-        'created' => 'created'
+        'created' => 'created',
+        'data' => 'data'
     ];
 
     /**
@@ -185,7 +189,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'type' => 'setType',
         'id' => 'setId',
-        'created' => 'setCreated'
+        'created' => 'setCreated',
+        'data' => 'setData'
     ];
 
     /**
@@ -196,7 +201,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'type' => 'getType',
         'id' => 'getId',
-        'created' => 'getCreated'
+        'created' => 'getCreated',
+        'data' => 'getData'
     ];
 
     /**
@@ -259,6 +265,7 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('created', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
 
         // Initialize discriminator property with the model name.
         $this->container['type'] = static::$openAPIModelName;
@@ -386,6 +393,33 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable created cannot be null');
         }
         $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets data
+     *
+     * @return object|null
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param object|null $data data
+     *
+     * @return self
+     */
+    public function setData($data)
+    {
+        if (is_null($data)) {
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        }
+        $this->container['data'] = $data;
 
         return $this;
     }

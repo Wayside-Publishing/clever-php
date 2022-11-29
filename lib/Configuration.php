@@ -472,7 +472,7 @@ class Configuration
     {
         return [
             [
-                "url" => "https://api.clever.com",
+                "url" => "https://api.clever.com/v2.1",
                 "description" => "No description provided",
             ]
         ];
